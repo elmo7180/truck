@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">운송</string>
+    <string name="google_login">구글 로그인</string>
+    <string name="kakao_login">카카오 로그인</string>
+    <string name="email_login">이메일 로그인</string>
+    <string name="google_default_web_client_key">2691591386-off8ju4mmrr8cjgp09n6q53628k288d1.apps.googleusercontent.com</string>
+    <string name="label_name">이름</string>
+    <string name="label_mobile">전화번호</string>
+    <string name="hint_mobile">000–0000–0000</string>
+    <string name="label_car_number">차량번호</string>
+    <string name="hint_car_number">00가0000</string>
+    <string name="label_car_kinds">차종</string>
+    <string name="signup">회원가입</string>
+    <string name="cancel">취소</string>
+    <string name="label_delivery_list">운송 목록</string>
+    <string name="menu_filter">필터</string>
+    <string name="add_product">운송품 추가</string>
+    <string name="menu_main">메인 화면</string>
+    <string name="menu_record">운송 내역</string>
+    <string name="menu_info">나의 정보</string>
+    <string name="settings">설정</string>
+    <string name="edit">수정</string>
+    <string name="check_overlap">중복확인</string>
+    <string name="apply">적용하기</string>
+    <string name="done">완료</string>
+    <string name="departure">출발지</string>
+    <string name="destination">도착지</string>
+    <string name="cd_product">상품 이미지</string>
+    <string name="deadline">마감기한</string>
+    <string name="cartons">Cts</string>
+    <string name="insert">등록하기</string>
+    <string name="cd_my_location">내 위치</string>
+    <string name="delivery_distance">운송거리</string>
+    <string name="approx_time">예상 시간</string>
+    <string name="claims">요청사항</string>
+    <string name="search">검색</string>
+    <string name="delivery_price">운송료</string>
+    <string name="error_destination">출발지역을 설정해주세요</string>
+    <string name="error_departure">도착지역을 설정해주세요</string>
+    <string name="error_deadline">마감기한을 확인해주세요.</string>
+    <string name="error_cartons">박스 수를 확인해주세요.</string>
+    <string name="error_price">기본요금 ₩ 50,000원 이상입니다.</string>
+    <string name="do_delivery">운송하기</string>
+    <string name="logout">로그아웃</string>
+    <string name="cd_no_data">데이터가 없습니다</string>
+    <string name="admin_data_add">임의의 데이터 100개 추가</string>
+    <string name="rest_dist">남은 거리</string>
+    <string name="arrow">화살표</string>
+    <string name="cd_profile_photo">프로필 사진</string>
+    <string name="cd_back">뒤로가기</string>
+    <string name="cd_chat">채팅</string>
+    <string name="send">전송</string>
+    <string name="hint_msg">메세지</string>
+    <string name="cd_arrow_down">화살표 아래</string>
+    <string name="record_delivery">운송내역</string>
+    <string name="record_detail">상세 내역</string>
+    <string name="chat_record">채팅내역</string>
+    <string name="cd_drop_down_window">화면 내림</string>
+    <string-array name="car_kinds">
+        <item>1톤</item>
+        <item>1.5톤</item>
+        <item>2.5톤</item>
+        <item>5톤</item>
+        <item>5톤++</item>
+        <item>11톤</item>
+        <item>18톤</item>
+        <item>25톤</item>
+        <item>트레일러</item>
+    </string-array>
+</resources>

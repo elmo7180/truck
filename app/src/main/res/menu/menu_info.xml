@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/ic_baseline_edit_24"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_done"
+        android:icon="@drawable/ic_baseline_done_24"
+        android:title="@string/done"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_signout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:title="@string/logout"
+        app:showAsAction="never"/>
+</menu>

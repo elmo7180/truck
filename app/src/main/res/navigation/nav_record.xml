@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_record"
+    app:startDestination="@id/dest_record">
+
+    <fragment
+        android:id="@+id/dest_record"
+        android:name="com.kdy_soft.truck.ui.record.DeliveryRecordFragment"
+        android:label="@string/record_delivery"
+        >
+        <action
+            android:id="@+id/action_dest_record_to_dest_record_detail"
+            app:destination="@id/dest_record_detail" />
+    </fragment>
+
+    <fragment android:id="@+id/dest_record_detail"
+        android:name="com.kdy_soft.truck.ui.record.RecordDetailFragment"
+        android:label="@string/record_detail">
+        <argument android:name="recordId"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+</navigation>

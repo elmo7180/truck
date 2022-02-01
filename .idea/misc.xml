@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.125" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/list_content.xml" value="0.20923913043478262" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.20923913043478262" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_list_item_2.xml" value="0.165" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/two_line_list_item.xml" value="0.20923913043478262" />
+        <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.15185185185185185" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/compound_view_chat.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/compound_view_driver_helper.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/dialog_date_picker.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_delivery_detail.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_delivery_list.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_record.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_record_detail.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_search_address.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_singup.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_waybill.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/list_item_chat.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/list_item_chat_room.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/list_item_delivery.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/list_item_monthly_page.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/list_item_record.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/view_chat_list.xml" value="0.125" />
+        <entry key="app/src/main/res/menu/menu_bottom.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/menu_delivery_list.xml" value="0.165" />
+        <entry key="app/src/main/res/menu/menu_detail.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/menu_editing.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/menu/menu_info.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/menu_record.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/xml/filepaths.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/xml/user_settings.xml" value="0.3098958333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

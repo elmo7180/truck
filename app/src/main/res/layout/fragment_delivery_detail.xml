@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.kdy_soft.truck.util.TruckUtils" />
+
+        <import type="com.kdy_soft.truck.ui.home.DeliveryDetailViewModel" />
+
+        <variable
+            name="viewModel"
+            type="DeliveryDetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:menu="@menu/menu_detail" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                isGone="@{!viewModel.loading}"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_normal">
+
+                <TextView
+                    android:id="@+id/label_departure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/departure"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/departure"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    addressName="@{viewModel.departure.addressName}"
+                    placeName="@{viewModel.departure.placeName}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="@{viewModel.editing}"
+                    android:lines="2"
+                    android:maxLines="2"
+                    app:cornerRadius="@dimen/margin_normal"
+                    app:layout_constraintTop_toBottomOf="@id/label_departure" />
+
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/departure" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/destination"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    addressName="@{viewModel.destination.addressName}"
+                    placeName="@{viewModel.destination.placeName}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:enabled="@{viewModel.editing}"
+                    android:lines="2"
+                    android:maxLines="1"
+                    android:minLines="2"
+                    app:cornerRadius="@dimen/margin_normal"
+                    app:layout_constraintTop_toBottomOf="@id/arrow" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/claimsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:hint="@string/claims"
+                    app:layout_constraintTop_toBottomOf="@id/destination">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:enabled="@{viewModel.editing}"
+                        android:gravity="start"
+                        android:inputType="text"
+                        android:text="@={viewModel.claims}"
+                        tools:text="살살 다뤄주십쇼" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/productImage"
+                    downloadImage="@{viewModel.delivery.photoUrl}"
+                    android:layout_width="match_parent"
+                    android:layout_height="256dp"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:contentDescription="@string/cd_product"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_baseline_camera_alt_24"
+                    app:layout_constraintTop_toBottomOf="@id/claimsLayout" />
+
+                <TextView
+                    android:id="@+id/label_deadline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:gravity="center"
+                    android:text="@string/deadline"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/productImage" />
+
+                <View
+                    android:id="@+id/deadline_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/browser_actions_divider_color"
+                    app:layout_constraintTop_toBottomOf="@id/label_deadline" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deadlineDate"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:enabled="@{viewModel.editing}"
+                    android:text="@{viewModel.delivery.deadlineString}"
+                    app:layout_constraintTop_toBottomOf="@id/deadline_divider"
+                    tools:text="2021.12.28" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deadlineTime"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:enabled="@{viewModel.editing}"
+                    android:text="@{viewModel.delivery.deadlineTimeString}"
+                    app:layout_constraintTop_toBottomOf="@id/deadlineDate"
+                    tools:text="19:00" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cartonsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    app:layout_constraintTop_toBottomOf="@id/deadlineTime"
+                    app:placeholderText="@string/cartons">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:enabled="@{viewModel.editing}"
+                        android:gravity="end"
+                        android:hint="@string/cartons"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:text="@={viewModel.cartons}"
+                        tools:text="32" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/label_kinds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:text="@string/label_car_kinds"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                    android:textColor="@color/browser_actions_divider_color"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/cartonsLayout" />
+
+                <View
+                    android:id="@+id/divider_kinds"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/browser_actions_divider_color"
+                    app:layout_constraintTop_toBottomOf="@id/label_kinds" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerCarKinds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:clickable="@{viewModel.editing}"
+                    android:selection="@{viewModel.delivery.vehicleKinds.indexOf()}"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/divider_kinds" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/priceLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:hint="@string/delivery_price"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerCarKinds">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:enabled="@{viewModel.editing}"
+                        android:gravity="end"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:text="@={viewModel.price}"
+                        tools:text="₩ 300,000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/doneButton"
+                    isGone="@{viewModel.editing==false}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{viewModel::apply}"
+                    android:text="@string/insert"
+                    app:layout_constraintTop_toBottomOf="@id/priceLayout" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deliveryButton"
+                    isGone="@{!viewModel.canDrive}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/do_delivery"
+                    app:layout_constraintTop_toBottomOf="@id/priceLayout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

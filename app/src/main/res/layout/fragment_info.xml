@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.kdy_soft.truck.ui.info.MyInfoViewModel" />
+
+        <variable
+            name="viewModel"
+            type="MyInfoViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:menu="@menu/menu_info" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_normal">
+
+                <ImageView
+                    android:id="@+id/profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/map_height"
+                    android:enabled="@{viewModel.editing}"
+                    android:src="@drawable/ic_baseline_person_24"
+                    downloadImage="@{viewModel.user.profileUrl}"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/labelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="76dp"
+                    android:text="@string/label_name"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintBottom_toBottomOf="@+id/editName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editName" />
+
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:enabled="@{viewModel.editing}"
+                    android:gravity="center"
+                    android:hint="@string/label_name"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:text="@={viewModel.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/labelName"
+                    app:layout_constraintTop_toBottomOf="@id/profile" />
+
+                <TextView
+                    android:id="@+id/labelMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="76dp"
+                    android:text="@string/label_mobile"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintBottom_toBottomOf="@+id/editMobile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editMobile" />
+
+                <EditText
+                    android:id="@+id/editMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:enabled="@{viewModel.editing}"
+                    android:gravity="center"
+                    android:hint="@string/hint_mobile"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:maxLines="1"
+                    android:text="@={viewModel.mobile}"
+                    app:layout_constraintEnd_toStartOf="@id/checkMobile"
+                    app:layout_constraintStart_toEndOf="@id/labelMobile"
+                    app:layout_constraintTop_toBottomOf="@id/editName" />
+
+                <Button
+                    android:id="@+id/checkMobile"
+                    isGone="@{!viewModel.editing}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_overlap"
+                    app:layout_constraintBottom_toBottomOf="@id/editMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/editMobile" />
+
+                <TextView
+                    android:id="@+id/labelCarNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="76dp"
+                    android:text="@string/label_car_number"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintBottom_toBottomOf="@+id/editCarNumber"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editCarNumber" />
+
+                <EditText
+                    android:id="@+id/editCarNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:enabled="@{viewModel.editing}"
+                    android:gravity="center"
+                    android:hint="@string/hint_car_number"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:maxLines="1"
+                    android:text="@={viewModel.carNumber}"
+                    app:layout_constraintEnd_toStartOf="@id/checkCarNumber"
+                    app:layout_constraintStart_toEndOf="@+id/labelCarNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/editMobile"
+                    tools:ignore="TextFields" />
+
+                <Button
+                    android:id="@+id/checkCarNumber"
+                    isGone="@{!viewModel.editing}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_overlap"
+                    app:layout_constraintBottom_toBottomOf="@id/editCarNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/editCarNumber" />
+
+                <TextView
+                    android:id="@+id/labelCarKinds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="76dp"
+                    android:text="@string/label_car_kinds"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintBottom_toBottomOf="@id/spinnerCarKinds"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/spinnerCarKinds" />
+
+                <Spinner
+                    android:id="@+id/spinnerCarKinds"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:enabled="@{viewModel.editing}"
+                    android:gravity="center"
+                    android:hint="@string/label_name"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:selection="@{viewModel.carKinds}"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelCarKinds"
+                    app:layout_constraintTop_toBottomOf="@+id/editCarNumber"
+                    app:layout_goneMarginStart="@dimen/margin_normal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signupButton"
+                    isGone="@{!viewModel.editing}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:onClick="@{viewModel::apply}"
+                    android:text="@string/apply"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerCarKinds" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/add_data"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            isGone="@{!viewModel.isAdmin()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="@dimen/margin_normal"
+            android:gravity="center"
+            android:text="@string/admin_data_add" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

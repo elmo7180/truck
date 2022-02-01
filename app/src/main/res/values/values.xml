@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="search_address_location">0</integer>
+    <integer name="search_address_departure">1</integer>
+    <integer name="search_address_destination">2</integer>
+</resources>

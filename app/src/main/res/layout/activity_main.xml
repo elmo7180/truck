@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.kdy_soft.truck.ui.UserViewModel" />
+
+        <import type="com.kdy_soft.truck.ui.home.ChatViewModel" />
+
+        <variable
+            name="chatViewModel"
+            type="ChatViewModel" />
+
+        <variable
+            name="viewModel"
+            type="UserViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/loadingView"
+            isGone="@{!viewModel.initiating}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/truck"
+            android:translationZ="@dimen/margin_normal"
+            android:visibility="gone" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?android:attr/actionBarSize"
+            app:navGraph="@navigation/nav_graph"
+            tools:context=".ui.MainActivity" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            isGone="@{viewModel.user==null}"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_gravity="bottom"
+            app:layout_insetEdge="bottom"
+            app:menu="@menu/menu_bottom" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabBack"
+            isGone="@{chatViewModel.chatRooms.empty}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/cd_back"
+            android:layout_margin="@dimen/margin_normal"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_anchor="@id/nav_host_fragment"
+            app:layout_anchorGravity="top|start" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabConversation"
+            isGone="@{chatViewModel.chatRooms.empty}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/image_button_size"
+            android:contentDescription="@string/cd_chat"
+            android:src="@drawable/ic_baseline_chat_24"
+            app:layout_anchor="@id/bottomNav"
+            app:layout_anchorGravity="end|bottom" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

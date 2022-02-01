@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_main">
+    <action
+        android:id="@+id/dest_to_login"
+        app:destination="@id/dest_login"
+        app:popUpTo="@id/dest_to_login"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/dest_to_main"
+        app:destination="@+id/dest_delivery_list"
+        app:popUpTo="@+id/dest_delivery_list"
+        app:popUpToInclusive="true" />
+    <include app:graph="@navigation/nav_main" />
+    <include app:graph="@navigation/nav_info" />
+    <include app:graph="@navigation/nav_record" />
+</navigation>

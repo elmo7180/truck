@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.kdy_soft.truck.ui.home.DeliveryItemViewModel" />
+        <variable
+            name="itemViewModel"
+            type="DeliveryItemViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:elevation="@dimen/margin_normal"
+        app:cardCornerRadius="@dimen/margin_extra_small"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_normal">
+
+            <TextView
+                android:id="@+id/departure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{itemViewModel.departure}"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="이랜드 패션몰" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/browser_actions_divider_color"
+                app:layout_constraintTop_toBottomOf="@id/departure" />
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="@dimen/product_size"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:contentDescription="@string/cd_product"
+                android:scaleType="fitXY"
+                android:src="@color/browser_actions_divider_color"
+                downloadImage="@{itemViewModel.productImageUrl}"
+                app:layout_constraintBottom_toBottomOf="@+id/cartons"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/departure" />
+
+            <TextView
+                android:id="@+id/deadline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:gravity="center"
+                android:text="@{itemViewModel.deadline}"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="@id/productImage"
+                app:layout_constraintStart_toStartOf="@id/productImage"
+                app:layout_constraintTop_toBottomOf="@id/dividerDistanceFromMe"
+                tools:text="3시간 30분" />
+
+            <View
+                android:id="@+id/dividerDistanceFromMe"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/browser_actions_divider_color"
+                app:layout_constraintEnd_toEndOf="@id/productImage"
+                app:layout_constraintStart_toStartOf="@id/productImage"
+                app:layout_constraintTop_toBottomOf="@id/distanceFromMe" />
+
+            <TextView
+                android:id="@+id/distanceFromMe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@{itemViewModel.distanceFromMe}"
+                app:layout_constraintEnd_toEndOf="@id/productImage"
+                app:layout_constraintStart_toStartOf="@id/productImage"
+                app:layout_constraintTop_toBottomOf="@id/productImage"
+                tools:text="300m" />
+
+            <TextView
+                android:id="@+id/labelDestination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/destination"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toBottomOf="@+id/departure" />
+
+            <TextView
+                android:id="@+id/destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:gravity="end"
+                android:maxLines="1"
+                android:text="@{itemViewModel.destination}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelDestination"
+                app:layout_constraintTop_toTopOf="@id/labelDestination" />
+
+            <TextView
+                android:id="@+id/labelDeliveryDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/delivery_distance"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintStart_toEndOf="@id/productImage"
+                app:layout_constraintTop_toBottomOf="@id/labelDestination" />
+
+            <TextView
+                android:id="@+id/deliveryDistance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:gravity="end"
+                android:text="@{itemViewModel.distance}"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelDeliveryDistance"
+                app:layout_constraintTop_toTopOf="@id/labelDeliveryDistance" />
+
+            <TextView
+                android:id="@+id/labelApproxTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/approx_time"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintStart_toEndOf="@id/productImage"
+                app:layout_constraintTop_toBottomOf="@id/labelDeliveryDistance" />
+
+            <TextView
+                android:id="@+id/approxTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="end"
+                android:text="@{itemViewModel.approxTime}"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelApproxTime"
+                app:layout_constraintTop_toBottomOf="@id/deliveryDistance" />
+
+            <TextView
+                android:id="@+id/cartons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="end"
+                android:text="@{itemViewModel.cartons}"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelApproxTime"
+                app:layout_constraintTop_toBottomOf="@id/labelApproxTime"
+                tools:text="32Cts" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="end|center_vertical"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textStyle="bold"
+                android:text="@{itemViewModel.price}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/departure"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toBottomOf="@+id/productImage"
+                tools:text="₩ 100,000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:background="@color/browser_actions_divider_color"
+                app:layout_constraintTop_toBottomOf="@id/productImage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
