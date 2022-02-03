@@ -53,10 +53,6 @@ class MyInfoViewModel @Inject constructor(
         auth.signOut()
     }
 
-    fun addDataForAdmin(){
-        TruckUtils.addDataForAdmin()
-    }
-
     private fun nameValidate() = name.value?.isNotBlank() == true
     private fun mobileValidate() = mobile.value?.matches(Regex("")) == true
     private fun carNumberValidate() = carNumber.value?.matches(Regex("")) == true

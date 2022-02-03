@@ -67,10 +67,6 @@ class MyInfoFragment : Fragment() {
             }
         }
 
-        binding.addData.setOnClickListener {
-            infoViewModel.addDataForAdmin()
-        }
-
         binding.spinnerCarKinds.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
