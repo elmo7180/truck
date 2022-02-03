@@ -200,17 +200,5 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/add_data"
-            style="@style/Widget.MaterialComponents.FloatingActionButton"
-            isGone="@{!viewModel.isAdmin()}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_margin="@dimen/margin_normal"
-            android:gravity="center"
-            android:text="@string/admin_data_add" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
